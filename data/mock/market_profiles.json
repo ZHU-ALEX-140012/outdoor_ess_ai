@@ -1,0 +1,65 @@
+{
+  "notice": "Simulated market-level proxies for offline demonstration. Values are illustrative, not market facts.",
+  "markets": [
+    {
+      "market": "US",
+      "language": "en",
+      "currency": "USD",
+      "demand_index": 88,
+      "competition_index": 78,
+      "growth_pct": 12.5,
+      "household_energy_price_usd_kwh": 0.17,
+      "outdoor_participation_pct": 54,
+      "compliance_complexity": 55,
+      "logistics_cost_index": 12,
+      "vat_pct": 0,
+      "import_duty_pct": 3.0,
+      "avg_order_value_usd": 520
+    },
+    {
+      "market": "DE",
+      "language": "de",
+      "currency": "EUR",
+      "demand_index": 74,
+      "competition_index": 61,
+      "growth_pct": 8.2,
+      "household_energy_price_usd_kwh": 0.40,
+      "outdoor_participation_pct": 58,
+      "compliance_complexity": 72,
+      "logistics_cost_index": 14,
+      "vat_pct": 19,
+      "import_duty_pct": 2.5,
+      "avg_order_value_usd": 560
+    },
+    {
+      "market": "UK",
+      "language": "en",
+      "currency": "GBP",
+      "demand_index": 68,
+      "competition_index": 57,
+      "growth_pct": 6.4,
+      "household_energy_price_usd_kwh": 0.34,
+      "outdoor_participation_pct": 52,
+      "compliance_complexity": 60,
+      "logistics_cost_index": 13,
+      "vat_pct": 20,
+      "import_duty_pct": 2.0,
+      "avg_order_value_usd": 480
+    },
+    {
+      "market": "FR",
+      "language": "fr",
+      "currency": "EUR",
+      "demand_index": 64,
+      "competition_index": 54,
+      "growth_pct": 7.1,
+      "household_energy_price_usd_kwh": 0.25,
+      "outdoor_participation_pct": 55,
+      "compliance_complexity": 70,
+      "logistics_cost_index": 15,
+      "vat_pct": 20,
+      "import_duty_pct": 2.5,
+      "avg_order_value_usd": 510
+    }
+  ]
+}

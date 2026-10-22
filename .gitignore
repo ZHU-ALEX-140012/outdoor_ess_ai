@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.pytest_tmp/
+.pytest_*/*
+.pytest_run*/
+pytest-cache-files-*
+tests/_artifacts/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 虚拟环境与本地依赖
+.venv/
+venv/
+env/
+.vendor/
+.runtime/
+.taste-skill/
+
+# 密钥与本地环境
+.env
+.env.*
+!.env.example
+
+# 运行产物（保留目录占位）
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/external/*
+!data/external/.gitkeep
+data/competitors/state.json
+data/competitors/history.jsonl
+outputs/*
+!outputs/.gitkeep
+*.log
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

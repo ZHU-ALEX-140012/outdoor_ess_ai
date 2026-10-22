@@ -1,0 +1,54 @@
+{
+  "notice": "离线公开快照（变更版）：用于验证价格/排名异动预警，不代表真实竞品。",
+  "captured_at": "2026-10-20T14:00:00+00:00",
+  "snapshots": {
+    "demo-amz-300": {
+      "title": "Demo Amazon 300Wh Portable Power Station",
+      "price": 279.0,
+      "currency": "USD",
+      "bsr": 980,
+      "bsr_category": "Portable Power Stations",
+      "rating": 4.2,
+      "review_count": 1290,
+      "reviews": [
+        {"rating": 1, "title": "Battery drains too fast", "body": "The battery drained from 100% to 20% in one evening. Runtime is far shorter than expected for a 300Wh unit.", "date": "2026-10-01", "author": "Public Reviewer A"},
+        {"rating": 2, "title": "Fan noise at night", "body": "The fan is loud and cycles on every few minutes. I could hear it from the tent.", "date": "2026-10-02", "author": "Public Reviewer B"},
+        {"rating": 1, "title": "Solar charging is very slow", "body": "Solar input is slow even in full sun. It took all day with a 200W panel.", "date": "2026-10-03", "author": "Public Reviewer C"},
+        {"rating": 2, "title": "App loses connection", "body": "The app disconnects and the display sometimes shows the wrong percentage.", "date": "2026-10-04", "author": "Public Reviewer D"},
+        {"rating": 1, "title": "Still drains quickly", "body": "Battery still drains quickly after the firmware update.", "date": "2026-10-10", "author": "Public Reviewer P"}
+      ]
+    },
+    "demo-ali-500": {
+      "title": "Demo AliExpress 500Wh Portable Power Station",
+      "price": 349.0,
+      "currency": "USD",
+      "bsr": 2900,
+      "bsr_category": "Portable Power Stations",
+      "rating": 4.0,
+      "review_count": 2160,
+      "reviews": [
+        {"rating": 1, "title": "AC output shuts down", "body": "The AC output shuts down when I plug in a 500W kettle. It cannot handle the load.", "date": "2026-09-28", "author": "Public Reviewer F"},
+        {"rating": 2, "title": "Arrived late and box damaged", "body": "Delivery took three weeks and the package arrived dented. Customer service did not reply.", "date": "2026-09-29", "author": "Public Reviewer G"},
+        {"rating": 1, "title": "Heavy and bulky", "body": "Too heavy to carry to a campsite. The handle is uncomfortable.", "date": "2026-09-30", "author": "Public Reviewer H"},
+        {"rating": 2, "title": "Confusing instructions", "body": "The manual is confusing and the setup guide is incomplete.", "date": "2026-10-01", "author": "Public Reviewer I"},
+        {"rating": 1, "title": "Fan is very noisy", "body": "The fan is noisy under load and the app disconnects.", "date": "2026-10-11", "author": "Public Reviewer Q"}
+      ]
+    },
+    "demo-1688-320": {
+      "title": "Demo 1688 320Wh Outdoor Power Station",
+      "price": 690.0,
+      "currency": "CNY",
+      "bsr": 1100,
+      "bsr_category": "户外电源",
+      "rating": 4.1,
+      "review_count": 1390,
+      "reviews": [
+        {"rating": 1, "title": "Charging brick gets very hot", "body": "The charger gets hot during charging and smells like burning plastic. Safety concern.", "date": "2026-09-25", "author": "Public Reviewer K"},
+        {"rating": 2, "title": "Display reading inaccurate", "body": "The display shows 100% but the unit shuts down after 10 minutes.", "date": "2026-09-26", "author": "Public Reviewer L"},
+        {"rating": 1, "title": "Missing cable in package", "body": "Package was missing the AC cable. Support asked me to wait.", "date": "2026-09-27", "author": "Public Reviewer M"},
+        {"rating": 2, "title": "Too heavy for hiking", "body": "Weight is too much for backpacking. Fine for car camping.", "date": "2026-09-28", "author": "Public Reviewer N"},
+        {"rating": 1, "title": "Solar charging is slow", "body": "Solar charging is slow and the panel input is not stable.", "date": "2026-10-12", "author": "Public Reviewer R"}
+      ]
+    }
+  }
+}

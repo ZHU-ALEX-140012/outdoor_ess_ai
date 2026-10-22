@@ -1,0 +1,40 @@
+# =============================================================================
+# 经营模拟与报表配置
+# 所有数据为固定种子模拟，不接入真实店铺/广告/库存后台。
+# =============================================================================
+input:
+  selection: "outputs/research/high_potential_products.xlsx"
+  sheet: "高潜力选品"
+
+output:
+  dir: "outputs/operations"
+  ad_file: "ad_daily_report.xlsx"
+  inventory_file: "inventory_alert.xlsx"
+  profit_file: "monthly_profit.xlsx"
+  summary_file: "report_summary.json"
+
+simulation:
+  seed: 20261021
+  period_end: "2026-09-30"
+  days: 30
+  target_share: 0.08
+  ad_order_share: [0.35, 0.65]
+  target_acos_range: [0.12, 0.22]
+  ctr_range: [0.004, 0.012]
+  cvr_range: [0.04, 0.10]
+  inventory_begin_cover_range: [30, 90]
+  inventory_onhand_cover_range: [5, 95]
+  inventory_intransit_cover_range: [0, 30]
+  lead_time_choices: [25, 30, 35, 40]
+  safety_days: 14
+  target_cover_days: 30
+  aging_ratio_range: [0.0, 0.30]
+
+cost:
+  platform_fee_rate: 0.15
+  return_rate: 0.03
+  storage_rate_month: 0.01
+  other_rate: 0.01
+  fulfillment_base_usd: 3.0
+  fulfillment_per_kg_usd: 1.8
+  currency: "USD"

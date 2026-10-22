@@ -1,0 +1,12 @@
+# Streamlit 本地运行配置
+# 关闭 developmentMode，允许命令行指定 --server.port。
+[global]
+developmentMode = false
+
+[server]
+headless = true
+address = "127.0.0.1"
+port = 8501
+
+[browser]
+gatherUsageStats = false

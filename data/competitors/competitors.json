@@ -1,0 +1,41 @@
+{
+  "notice": "Demo registry. Replace demo URLs with real public product pages before live monitoring; demo entries are skipped in live mode.",
+  "competitors": [
+    {
+      "id": "demo-amz-300",
+      "name": "Demo Amazon 300Wh",
+      "url": "https://www.amazon.com/dp/B0DEMO0001",
+      "platform": "amazon",
+      "enabled": true,
+      "demo": true,
+      "added_at": "2026-10-20T08:00:00+00:00",
+      "price_threshold_pct": null,
+      "price_threshold_abs": null,
+      "rank_threshold_abs": null
+    },
+    {
+      "id": "demo-ali-500",
+      "name": "Demo AliExpress 500Wh",
+      "url": "https://www.aliexpress.com/item/1005000000003.html",
+      "platform": "aliexpress",
+      "enabled": true,
+      "demo": true,
+      "added_at": "2026-10-20T08:00:00+00:00",
+      "price_threshold_pct": null,
+      "price_threshold_abs": null,
+      "rank_threshold_abs": null
+    },
+    {
+      "id": "demo-1688-320",
+      "name": "Demo 1688 320Wh",
+      "url": "https://detail.1688.com/offer/600000000009.html",
+      "platform": "alibaba_1688",
+      "enabled": true,
+      "demo": true,
+      "added_at": "2026-10-20T08:00:00+00:00",
+      "price_threshold_pct": null,
+      "price_threshold_abs": null,
+      "rank_threshold_abs": null
+    }
+  ]
+}

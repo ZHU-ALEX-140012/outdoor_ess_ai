@@ -1,0 +1,109 @@
+# =============================================================================
+# 竞品监控配置
+# 仅抓取竞品对外公开商品页；不登录、不调用商家后台 API、不绕过验证码。
+# =============================================================================
+project:
+  name: "户外储能竞品公开数据监控"
+  timezone: "Asia/Shanghai"
+
+monitor:
+  # 默认巡检频率：6 小时；CLI --interval-hours 可覆盖
+  interval_hours: 6.0
+  mode: "offline"          # offline / live / auto
+  respect_robots: true
+  request_delay_seconds: 2.0
+  timeout_seconds: 20
+  max_reviews_per_competitor: 20
+  negative_rating_threshold: 2
+  price_threshold_pct: 3.0
+  price_threshold_abs: 5.0
+  rank_threshold_abs: 20
+  max_pain_examples: 3
+  max_alert_quote_chars: 300
+
+crawler:
+  user_agent: "OutdoorEssMonitor/0.1 (public-product-monitor; contact: research@example.com)"
+  accept_language: "en-US,en;q=0.9"
+  max_reviews_pages: 1
+
+paths:
+  registry: "data/competitors/competitors.json"
+  state: "data/competitors/state.json"
+  history: "data/competitors/history.jsonl"
+  snapshots_dir: "outputs/monitor/snapshots"
+  alerts_dir: "outputs/monitor/alerts"
+  reports_dir: "outputs/monitor/reports"
+  logs_dir: "outputs/monitor/logs"
+
+fixture:
+  path: "data/mock/competitor_public_snapshots.json"
+  changed_path: "data/mock/competitor_public_snapshots_changed.json"
+
+# 首次启动且注册表不存在时写入的演示竞品；live 模式会跳过 demo 条目
+bootstrap:
+  - id: "demo-amz-300"
+    name: "Demo Amazon 300Wh"
+    url: "https://www.amazon.com/dp/B0DEMO0001"
+    platform: "amazon"
+    enabled: true
+    demo: true
+  - id: "demo-ali-500"
+    name: "Demo AliExpress 500Wh"
+    url: "https://www.aliexpress.com/item/1005000000003.html"
+    platform: "aliexpress"
+    enabled: true
+    demo: true
+  - id: "demo-1688-320"
+    name: "Demo 1688 320Wh"
+    url: "https://detail.1688.com/offer/600000000009.html"
+    platform: "alibaba_1688"
+    enabled: true
+    demo: true
+
+# 差评痛点分类词典；可自行增加类别与关键词
+pain_categories:
+  - id: "battery_life"
+    label: "电池与续航"
+    keywords: ["battery drained", "battery drains", "battery life", "runtime", "run time", "drain", "drained", "drains", "capacity", "lasts", "last", "doesn't last", "does not last", "percentage", "empty"]
+  - id: "charging_speed"
+    label: "充电速度与充电器"
+    keywords: ["charge", "charging", "recharge", "slow charge", "takes hours", "charger", "adapter", "input", "charging time"]
+  - id: "solar_charging"
+    label: "太阳能充电"
+    keywords: ["solar", "panel", "sunlight", "cloudy", "solar input", "solar charging"]
+  - id: "noise"
+    label: "噪音与风扇"
+    keywords: ["noise", "noisy", "fan", "loud", "hum", "buzzing", "whine"]
+  - id: "power_output"
+    label: "输出功率与过载"
+    keywords: ["output", "watt", "shut down", "shuts down", "overload", "inverter", "ac output", "kettle", "heater", "trip", "tripped"]
+  - id: "weight_portability"
+    label: "重量与便携性"
+    keywords: ["heavy", "weight", "carry", "portable", "bulky", "handle is", "too big", "backpack"]
+  - id: "build_quality"
+    label: "做工与耐用性"
+    keywords: ["build", "plastic", "flimsy", "cracked", "scratched", "broken", "loose", "quality", "cheap feel", "dent"]
+  - id: "display_app"
+    label: "显示与 App"
+    keywords: ["app", "display", "screen", "bluetooth", "wifi", "connect", "connection", "reading", "button", "firmware"]
+  - id: "heat_safety"
+    label: "发热与安全"
+    keywords: ["hot", "heat", "overheat", "overheating", "burning", "smoke", "temperature", "safety", "swelling"]
+  - id: "shipping_packaging"
+    label: "物流与包装"
+    keywords: ["shipping", "delivery", "arrived", "package", "packaging", "box", "dented", "missing", "late"]
+  - id: "customer_service"
+    label: "客服与售后"
+    keywords: ["support", "customer service", "warranty", "refund", "return", "reply", "contact", "seller"]
+  - id: "instructions"
+    label: "说明书与上手"
+    keywords: ["manual", "instructions", "confusing", "guide", "setup", "set up", "documentation"]
+  - id: "compatibility"
+    label: "接口与兼容性"
+    keywords: ["port", "cable", "usb", "compatibility", "compatible", "adapter", "connector"]
+  - id: "value_price"
+    label: "价格与性价比"
+    keywords: ["price", "expensive", "value", "cheap", "not worth", "overpriced"]
+
+stopwords:
+  ["the", "and", "for", "with", "this", "that", "from", "have", "has", "had", "was", "were", "are", "you", "your", "but", "not", "very", "just", "too", "all", "can", "could", "would", "should", "about", "after", "before", "when", "what", "which", "there", "their", "them", "they", "its", "it's", "i'm", "im", "my", "me", "we", "our", "us", "of", "to", "in", "on", "at", "as", "is", "be", "been", "being", "a", "an", "or", "if", "so", "up", "out", "get", "got", "one", "two", "unit", "product", "power", "station", "battery", "works", "work", "working", "use", "used", "using", "really", "still", "even", "only", "than", "then", "into", "over", "under", "more", "most", "some", "any", "does", "did", "do", "also", "because", "while", "where", "how", "why", "who", "will", "would", "can", "may", "might", "must", "much", "many", "such", "other", "these", "those", "it", "isn't", "didn't", "doesn't", "don't"]

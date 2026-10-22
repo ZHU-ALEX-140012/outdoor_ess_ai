@@ -1,0 +1,48 @@
+# =============================================================================
+# Listing 文案合规规则（规则初筛，不替代法律/认证审核）
+# severity: high 必须改；medium 建议改；low 需人工确认
+# =============================================================================
+forbidden_claims:
+  - {phrase: "best", severity: high, replacement: "reliable"}
+  - {phrase: "number one", severity: high, replacement: "popular"}
+  - {phrase: "#1", severity: high, replacement: "popular"}
+  - {phrase: "top rated", severity: medium, replacement: "well reviewed"}
+  - {phrase: "world's leading", severity: high, replacement: "trusted"}
+  - {phrase: "100% safe", severity: high, replacement: "designed with safety in mind"}
+  - {phrase: "zero risk", severity: high, replacement: "designed to reduce risk"}
+  - {phrase: "guaranteed safe", severity: high, replacement: "designed with safety in mind"}
+  - {phrase: "explosion-proof", severity: high, replacement: "protected battery enclosure"}
+  - {phrase: "never overheats", severity: high, replacement: "includes thermal protection"}
+  - {phrase: "cure", severity: high, replacement: "support"}
+  - {phrase: "treat", severity: high, replacement: "support"}
+  - {phrase: "medical grade", severity: high, replacement: "not applicable"}
+  - {phrase: "eco-friendly", severity: medium, replacement: "lower-emission"}
+  - {phrase: "zero emissions", severity: high, replacement: "no direct exhaust emissions during use"}
+  - {phrase: "carbon neutral", severity: high, replacement: "lower-carbon option"}
+  - {phrase: "UL listed", severity: high, replacement: "compliance documents under review"}
+  - {phrase: "UL certified", severity: high, replacement: "compliance documents under review"}
+  - {phrase: "CE certified", severity: high, replacement: "compliance documents under review"}
+  - {phrase: "FCC certified", severity: high, replacement: "compliance documents under review"}
+  - {phrase: "RoHS certified", severity: high, replacement: "compliance documents under review"}
+  - {phrase: "unlimited", severity: high, replacement: "extended"}
+  - {phrase: "forever", severity: high, replacement: "long-term"}
+  - {phrase: "never dies", severity: high, replacement: "long cycle life"}
+  - {phrase: "100% efficiency", severity: high, replacement: "efficient operation"}
+  - {phrase: "cheapest", severity: high, replacement: "value-priced"}
+  - {phrase: "lowest price", severity: high, replacement: "competitive price"}
+  - {phrase: "waterproof", severity: medium, replacement: "water-resistant"}
+  - {phrase: "cures", severity: high, replacement: "supports"}
+  - {phrase: "FDA approved", severity: high, replacement: "not a medical device"}
+
+# 这些词即使替换也不应出现在最终 CSV；用于二次扫描
+residual_terms:
+  - "best"
+  - "100% safe"
+  - "zero risk"
+  - "guaranteed"
+  - "unlimited"
+  - "cure"
+  - "FDA approved"
+  - "UL listed"
+  - "CE certified"
+  - "waterproof"

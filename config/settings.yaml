@@ -1,0 +1,100 @@
+# =============================================================================
+# 户外储能全链路 AI 自动化系统 - 主配置
+# 说明：所有业务数据均为公开数据源口径下的模拟数据，不连接任何平台店铺 API。
+# =============================================================================
+project:
+  name: "欧美轻量化户外储能全链路 AI 自动化系统"
+  code: "outdoor-ess-ai"
+  version: "0.1.0"
+  locale: "zh-CN"
+  timezone: "Asia/Shanghai"
+  mode: "offline"          # offline（默认，完全离线可跑）| live（仅大模型增强，仍需自行配置密钥）
+  seed: 20260401
+  run_label: "foundation"
+
+paths:
+  data_dir: "data"
+  mock_dir: "data/mock"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  external_dir: "data/external"
+  outputs_dir: "outputs"
+  analysis_dir: "outputs/analysis"
+  reports_dir: "outputs/reports"
+  content_dir: "outputs/content"
+  listings_dir: "outputs/listings"
+  compliance_dir: "outputs/compliance"
+  runs_dir: "outputs/runs"
+  logs_dir: "outputs/logs"
+  prompts_dir: "prompts"
+
+logging:
+  level: "INFO"
+  file_name: "outdoor_ess_ai.log"
+  max_bytes: 5242880
+  backup_count: 5
+  console: true
+
+llm:
+  provider: "deepseek"
+  model: "deepseek-v4.1-flash"
+  base_url: "https://api.deepseek.com/v1"
+  api_key_env: "DEEPSEEK_API_KEY"
+  temperature: 0.3
+  max_tokens: 4096
+  timeout_seconds: 60
+  max_retries: 3
+  offline_fallback: true
+  enable_in_demo: false
+
+business:
+  markets: ["US", "DE", "UK", "FR"]
+  supported_markets: ["US", "DE", "UK", "FR", "CA"]
+  primary_market: "US"
+  currency: "USD"
+  languages: ["en", "de", "fr"]
+  target_categories:
+    - "portable-power-station"
+    - "solar-panel"
+    - "outdoor-energy-storage"
+  price_band_usd: [199, 1299]
+  capacity_band_wh: [300, 2048]
+  compliance_regions: ["US", "EU", "UK"]
+  scoring_weights:
+    demand: 0.30
+    competition: 0.20
+    margin: 0.25
+    compliance: 0.10
+    logistics: 0.15
+  fx_to_usd:
+    USD: 1.0
+    EUR: 1.08
+    GBP: 1.27
+
+channels:
+  listing:
+    channel_name: "generic-marketplace"
+    title_max_chars: 200
+    bullet_count: 5
+    bullet_max_chars: 260
+    description_max_chars: 2000
+    search_terms_max_bytes: 250
+  content:
+    formats: ["short_video_script", "social_caption", "blog_outline"]
+    default_language: "en"
+
+compliance:
+  forbidden_claims:
+    - "best in the world"
+    - "100% safe"
+    - "unlimited power"
+    - "zero risk"
+    - "guaranteed forever"
+  required_disclosures:
+    - "Actual output and runtime vary by device and conditions."
+    - "Lithium battery products are subject to transport regulations."
+  market_requirements:
+    US: ["UL 2743", "FCC", "UN38.3", "Prop 65"]
+    DE: ["CE", "RoHS", "WEEE", "UN38.3", "EU Battery Regulation"]
+    UK: ["UKCA", "RoHS", "WEEE", "UN38.3"]
+    FR: ["CE", "RoHS", "WEEE", "UN38.3", "EU Battery Regulation"]

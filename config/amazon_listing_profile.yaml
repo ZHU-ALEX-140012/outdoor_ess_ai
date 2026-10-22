@@ -1,0 +1,143 @@
+# =============================================================================
+# Amazon 上架 CSV 字段档案
+#
+# 说明：Amazon 各站点/类目的库存文件模板会随时间和类目变化。本文件把字段名、
+# 顺序、必填性和长度限制独立成“可替换 profile”，默认按便携储能类目的通用平铺
+# 文件字段生成。上线前请从 Seller Central 下载当前类目模板，把本文件的 header
+# 改成模板实际表头即可，生成代码无需修改。
+# =============================================================================
+profile:
+  name: "amazon_portable_power_station_flat_file"
+  version: "2026.10"
+  encoding: "utf-8"
+  delimiter: ","
+  line_ending: "\n"
+  quote: "minimal"
+  notes: "字段顺序按本 profile 校验；类目专属字段以 Seller Central 当前模板为准。"
+
+defaults:
+  brand: "TrailHarbor"
+  quantity: 100
+  fulfillment_latency: 2
+  browse_node: ""
+  image_base_url: ""
+  price_ending: 0.99
+  item_type_keyword: "portable_power_stations"
+  product_type: "POWER_STATION"
+  warranty: "Limited manufacturer warranty. See product documentation for terms."
+  country_of_origin_fallback: ""
+
+markets:
+  US:
+    locale: "en-US"
+    language: "en"
+    currency: "USD"
+    fx_from_usd: 1.0
+    voltage: "120"
+    plug_type: "US 3-pin"
+    field_set: "base"
+    amazon_domain: "amazon.com"
+    filename: "amazon_us_listings.csv"
+    gpsr_required: false
+  UK:
+    locale: "en-GB"
+    language: "en"
+    currency: "GBP"
+    fx_from_usd: 0.79
+    voltage: "230"
+    plug_type: "UK 3-pin"
+    field_set: "base"
+    amazon_domain: "amazon.co.uk"
+    filename: "amazon_uk_listings.csv"
+    gpsr_required: false
+  DE:
+    locale: "de-DE"
+    language: "de"
+    currency: "EUR"
+    fx_from_usd: 0.92
+    voltage: "230"
+    plug_type: "EU 2-pin"
+    field_set: "eu"
+    amazon_domain: "amazon.de"
+    filename: "amazon_de_listings.csv"
+    gpsr_required: true
+  FR:
+    locale: "fr-FR"
+    language: "fr"
+    currency: "EUR"
+    fx_from_usd: 0.92
+    voltage: "230"
+    plug_type: "EU 2-pin"
+    field_set: "eu"
+    amazon_domain: "amazon.fr"
+    filename: "amazon_fr_listings.csv"
+    gpsr_required: true
+
+fields:
+  - {key: sku, header: sku, required_value: true, max_length: 40, type: text}
+  - {key: product_type, header: product_type, required_value: true, max_length: 40, type: text}
+  - {key: item_name, header: item_name, required_value: true, max_length: 200, type: text}
+  - {key: brand_name, header: brand_name, required_value: true, max_length: 80, type: text}
+  - {key: manufacturer, header: manufacturer, required_value: true, max_length: 80, type: text}
+  - {key: product_description, header: product_description, required_value: true, max_length: 2000, type: text}
+  - {key: bullet_point1, header: bullet_point1, required_value: true, max_length: 500, type: text}
+  - {key: bullet_point2, header: bullet_point2, required_value: true, max_length: 500, type: text}
+  - {key: bullet_point3, header: bullet_point3, required_value: true, max_length: 500, type: text}
+  - {key: bullet_point4, header: bullet_point4, required_value: true, max_length: 500, type: text}
+  - {key: bullet_point5, header: bullet_point5, required_value: true, max_length: 500, type: text}
+  - {key: generic_keywords, header: generic_keywords, required_value: true, max_length: 250, type: text}
+  - {key: standard_price, header: standard_price, required_value: true, max_length: 20, type: decimal}
+  - {key: list_price, header: list_price, required_value: true, max_length: 20, type: decimal}
+  - {key: currency, header: currency, required_value: true, max_length: 3, type: text}
+  - {key: quantity, header: quantity, required_value: true, max_length: 10, type: int}
+  - {key: condition_type, header: condition_type, required_value: true, max_length: 20, type: enum, enum: [new_new]}
+  - {key: fulfillment_latency, header: fulfillment_latency, required_value: true, max_length: 4, type: int}
+  - {key: main_image_url, header: main_image_url, required_value: true, max_length: 500, type: url}
+  - {key: other_image_url1, header: other_image_url1, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url2, header: other_image_url2, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url3, header: other_image_url3, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url4, header: other_image_url4, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url5, header: other_image_url5, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url6, header: other_image_url6, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url7, header: other_image_url7, required_value: false, max_length: 500, type: url}
+  - {key: other_image_url8, header: other_image_url8, required_value: false, max_length: 500, type: url}
+  - {key: external_product_id, header: external_product_id, required_value: true, max_length: 40, type: text}
+  - {key: external_product_id_type, header: external_product_id_type, required_value: true, max_length: 20, type: enum, enum: [ASIN, UPC, EAN, GTIN]}
+  - {key: recommended_browse_nodes, header: recommended_browse_nodes, required_value: true, max_length: 100, type: text}
+  - {key: item_type_keyword, header: item_type_keyword, required_value: true, max_length: 80, type: text}
+  - {key: update_delete, header: update_delete, required_value: true, max_length: 20, type: enum, enum: [Update, PartialUpdate, Delete]}
+  - {key: product_site_launch_date, header: product_site_launch_date, required_value: true, max_length: 10, type: date}
+  - {key: country_of_origin, header: country_of_origin, required_value: false, max_length: 2, type: text}
+  - {key: warranty_description, header: warranty_description, required_value: false, max_length: 500, type: text}
+  - {key: safety_warning, header: safety_warning, required_value: true, max_length: 500, type: text}
+  - {key: directions_for_use, header: directions_for_use, required_value: false, max_length: 500, type: text}
+  - {key: legal_disclaimer_description, header: legal_disclaimer_description, required_value: true, max_length: 500, type: text}
+  - {key: supplier_declared_has_product_battery, header: supplier_declared_has_product_battery, required_value: true, max_length: 5, type: enum, enum: ["Yes", "No"]}
+  - {key: supplier_declared_dg_hz_regulation, header: supplier_declared_dg_hz_regulation, required_value: true, max_length: 30, type: enum, enum: [unknown, not_applicable, ghs]}
+  - {key: lithium_battery_energy_content, header: lithium_battery_energy_content, required_value: true, max_length: 20, type: decimal}
+  - {key: lithium_battery_energy_content_unit, header: lithium_battery_energy_content_unit, required_value: true, max_length: 5, type: text}
+  - {key: lithium_battery_packaging, header: lithium_battery_packaging, required_value: true, max_length: 50, type: enum, enum: [batteries_contained_in_equipment, batteries_packed_with_equipment, batteries_only]}
+  - {key: number_of_lithium_ion_batteries, header: number_of_lithium_ion_batteries, required_value: true, max_length: 5, type: int}
+  - {key: battery_type, header: battery_type, required_value: true, max_length: 30, type: text}
+  - {key: wattage, header: wattage, required_value: true, max_length: 10, type: decimal}
+  - {key: wattage_unit, header: wattage_unit, required_value: true, max_length: 5, type: text}
+  - {key: output_voltage, header: output_voltage, required_value: true, max_length: 10, type: text}
+  - {key: plug_type, header: plug_type, required_value: true, max_length: 30, type: text}
+  - {key: number_of_ac_outlets, header: number_of_ac_outlets, required_value: false, max_length: 5, type: int}
+  - {key: solar_input_wattage, header: solar_input_wattage, required_value: false, max_length: 10, type: decimal}
+  - {key: battery_capacity, header: battery_capacity, required_value: true, max_length: 10, type: decimal}
+  - {key: battery_capacity_unit, header: battery_capacity_unit, required_value: true, max_length: 5, type: text}
+  - {key: item_weight, header: item_weight, required_value: true, max_length: 10, type: decimal}
+  - {key: item_weight_unit, header: item_weight_unit, required_value: true, max_length: 5, type: text}
+  - {key: item_length, header: item_length, required_value: false, max_length: 10, type: decimal}
+  - {key: item_width, header: item_width, required_value: false, max_length: 10, type: decimal}
+  - {key: item_height, header: item_height, required_value: false, max_length: 10, type: decimal}
+  - {key: item_dimension_unit, header: item_dimension_unit, required_value: false, max_length: 5, type: text}
+  - {key: product_tax_code, header: product_tax_code, required_value: false, max_length: 40, type: text}
+
+eu_extra_fields:
+  - {key: gpsr_safety_attestation, header: gpsr_safety_attestation, required_value: true, max_length: 20, type: enum, enum: ["Yes", "No"]}
+  - {key: gpsr_manufacturer_reference, header: gpsr_manufacturer_reference, required_value: true, max_length: 200, type: text}
+  - {key: gpsr_eu_responsible_person_name, header: gpsr_eu_responsible_person_name, required_value: true, max_length: 200, type: text}
+  - {key: gpsr_eu_responsible_person_address, header: gpsr_eu_responsible_person_address, required_value: true, max_length: 300, type: text}
+  - {key: gpsr_eu_responsible_person_email, header: gpsr_eu_responsible_person_email, required_value: true, max_length: 200, type: email}

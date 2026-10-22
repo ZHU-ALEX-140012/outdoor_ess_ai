@@ -1,0 +1,33 @@
+# =============================================================================
+# 大模型运行档案（离线优先；live 模式仅用于文案增强）
+# 模型名、上下文与价格等参数可能随服务方调整，请以实际控制台为准。
+# =============================================================================
+default_profile: "deepseek-v4.1-flash"
+
+profiles:
+  deepseek-v4.1-flash:
+    provider: "deepseek"
+    api_style: "openai-compatible"
+    model: "deepseek-v4.1-flash"
+    base_url_env: "DEEPSEEK_BASE_URL"
+    api_key_env: "DEEPSEEK_API_KEY"
+    default_temperature: 0.3
+    default_max_tokens: 4096
+    supports_json_mode: true
+    offline_fallback: true
+    usage:
+      - "listing 文案润色"
+      - "合规风险初筛建议"
+      - "内容脚本扩写"
+    guardrails:
+      - "不生成绝对化功效承诺"
+      - "不伪造认证、销量、评价"
+      - "不输出平台后台或用户隐私数据"
+      - "关键参数以结构化商品数据为准，模型不得改写"
+
+runtime:
+  request_timeout_seconds: 60
+  max_retries: 3
+  retry_backoff_seconds: 2
+  log_prompts: false
+  log_responses: false

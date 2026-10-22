@@ -1,0 +1,139 @@
+# =============================================================================
+# 选品自动化模块配置
+# 只允许公开可见页面；不登录、不调用平台店铺 API、不绕过验证码。
+# =============================================================================
+project:
+  name: "户外露营轻量化储能选品研究"
+  target_markets: ["US"]
+  default_market: "US"
+  currency: "USD"
+
+crawler:
+  # offline: 只读本地公开快照（默认，可复现）
+  # live:    仅抓公开搜索页，失败即停止
+  # auto:    先尝试 live，失败后回退本地快照
+  mode: "offline"
+  user_agent: "OutdoorEssAI/0.2 (public-research; contact: research@example.com)"
+  timeout_seconds: 20
+  delay_seconds: 2.0
+  respect_robots: true
+  max_pages: 1
+  max_results_per_platform: 30
+  live_fallback_to_snapshot: true
+  save_html: false
+
+platforms:
+  amazon:
+    label: "Amazon"
+    enabled: true
+    market: "US"
+    currency: "USD"
+    domain: "www.amazon.com"
+    search_url: "https://www.amazon.com/s?k={query}"
+    query: "portable power station 300wh"
+    fee_rate: 0.15
+    benchmark_cost_ratio: 0.42
+    conversion_rate: 0.025
+    is_sourcing: false
+  aliexpress:
+    label: "AliExpress"
+    enabled: true
+    market: "US"
+    currency: "USD"
+    domain: "www.aliexpress.com"
+    search_url: "https://www.aliexpress.com/w/wholesale-{query}.html?SearchText={query}"
+    query: "portable power station 300wh"
+    fee_rate: 0.08
+    benchmark_cost_ratio: 0.38
+    conversion_rate: 0.018
+    is_sourcing: false
+  alibaba_1688:
+    label: "1688"
+    enabled: true
+    market: "US"
+    source_region: "CN"
+    currency: "CNY"
+    domain: "s.1688.com"
+    search_url: "https://s.1688.com/selloffer/offer_search.htm?keywords={query}"
+    query: "户外电源 300Wh 露营"
+    fee_rate: 0.15
+    benchmark_cost_ratio: 0.55
+    conversion_rate: 0.030
+    is_sourcing: true
+
+filters:
+  capacity_wh: [100, 500]
+  max_weight_kg: 15.0
+  price_usd: [49.0, 1500.0]
+  price_per_wh_usd: [0.10, 8.0]
+  min_rating: 0.0
+  exclude_keywords:
+    - "cable only"
+    - "carrying bag"
+    - "solar panel only"
+    - "replacement battery"
+    - "charging adapter"
+    - "power bank 10000mah"
+  dedupe_same_title: true
+
+cost_model:
+  fx_to_usd:
+    USD: 1.0
+    EUR: 1.08
+    GBP: 1.27
+    CNY: 0.139
+  inbound_freight_per_kg_usd: 2.2
+  minimum_freight_usd: 6.0
+  packaging_usd: 1.5
+  duty_pct_by_market:
+    US: 3.0
+    DE: 2.5
+    UK: 2.0
+    FR: 2.5
+  fulfillment_per_kg_usd: 1.8
+  fulfillment_base_usd: 3.0
+  default_target_channel_fee: 0.15
+  ad_cost_ratio: 0.08
+
+competition:
+  weights:
+    listing_density: 0.35
+    review_barrier: 0.30
+    ad_pressure: 0.20
+    price_dispersion: 0.15
+  saturation_competitors: 1000
+  review_ceiling: 50000
+  ad_ceiling: 60
+  price_cv_full_scale_pct: 60.0
+
+market_capacity:
+  addressable_share: 0.15
+  conversion_by_platform:
+    amazon: 0.025
+    aliexpress: 0.018
+    alibaba_1688: 0.030
+
+opportunity:
+  weights:
+    margin: 0.35
+    market: 0.25
+    competition: 0.20
+    lightweight: 0.10
+    data_quality: 0.10
+  thresholds:
+    min_gross_margin_pct: 25.0
+    min_market_capacity_usd: 120000.0
+    max_competition_score: 70.0
+    max_weight_kg: 12.0
+    min_opportunity_score: 65.0
+  top_n: 30
+
+output:
+  dir: "outputs/research"
+  excel_name: "high_potential_products.xlsx"
+  csv_name: "cleaned_products.csv"
+  summary_name: "research_summary.json"
+  raw_name: "raw_public_snapshot.json"
+
+fixture:
+  path: "data/mock/public_research_snapshot.json"

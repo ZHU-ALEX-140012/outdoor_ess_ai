@@ -1,0 +1,59 @@
+# =============================================================================
+# 公开数据源目录（仅作口径与字段映射说明，不代表真实 API 接入）
+# 本项目不抓取、不存储任何个人信息，不绕过任何平台访问控制。
+# =============================================================================
+policy:
+  data_mode: "public-data-only"
+  marketplace_api: "disabled"
+  personal_data: "forbidden"
+  robots_txt: "respect"
+  source_attribution: "required"
+  simulation_notice: "所有数值均为离线模拟，仅用于系统演示与流程验证。"
+
+sources:
+  - id: public_trend_proxy
+    name: "公开搜索趋势代理指标"
+    category: "demand"
+    access: "manual-public-view"
+    fields: ["keyword", "market", "search_index", "seasonality"]
+    refresh: "weekly"
+    note: "不调用私有 API，使用公开趋势页面的人工/离线摘要口径。"
+
+  - id: public_price_pages
+    name: "公开商品价格页"
+    category: "price"
+    access: "manual-public-view"
+    fields: ["product", "market", "price_local", "currency"]
+    refresh: "weekly"
+    note: "仅记录公开标价，不登录卖家后台。"
+
+  - id: public_competitor_pages
+    name: "公开竞品详情页"
+    category: "competition"
+    access: "manual-public-view"
+    fields: ["title", "capacity_wh", "output_w", "weight_kg", "rating", "review_count"]
+    refresh: "biweekly"
+    note: "用于竞品参数对比，不复制受版权保护的文案。"
+
+  - id: public_standards
+    name: "公开法规与标准目录"
+    category: "compliance"
+    access: "official-public-site"
+    fields: ["market", "standard", "scope"]
+    refresh: "monthly"
+    note: "标准适用性需由持证合规服务商最终确认。"
+
+  - id: public_macro_energy
+    name: "公开能源与户外消费宏观数据"
+    category: "macro"
+    access: "public-report"
+    fields: ["market", "household_energy_price", "outdoor_participation"]
+    refresh: "quarterly"
+    note: "使用公开报告摘要，不引入付费数据库。"
+
+field_policy:
+  market_code: "ISO 3166-1 alpha-2（US/DE/UK/FR/CA）"
+  currency: "记录原币种，分析前统一折算 USD"
+  weight: "kg，保留三位小数"
+  capacity: "Wh，整数"
+  timestamp: "ISO-8601 UTC"

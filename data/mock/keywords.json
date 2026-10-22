@@ -1,0 +1,19 @@
+{
+  "notice": "Simulated public keyword proxies. Search volumes are synthetic indices, not platform API data.",
+  "keywords": [
+    {"market": "US", "keyword": "portable power station for camping", "intent": "commercial", "search_index": 92, "difficulty": 68, "cpc_usd": 1.85},
+    {"market": "US", "keyword": "lifepo4 power station", "intent": "commercial", "search_index": 78, "difficulty": 55, "cpc_usd": 1.42},
+    {"market": "US", "keyword": "solar generator for rv", "intent": "commercial", "search_index": 71, "difficulty": 62, "cpc_usd": 1.66},
+    {"market": "US", "keyword": "quiet power station", "intent": "transactional", "search_index": 44, "difficulty": 31, "cpc_usd": 0.96},
+    {"market": "DE", "keyword": "mobile powerstation camping", "intent": "commercial", "search_index": 84, "difficulty": 59, "cpc_usd": 1.31},
+    {"market": "DE", "keyword": "solar generator wohnmobil", "intent": "commercial", "search_index": 66, "difficulty": 48, "cpc_usd": 1.12},
+    {"market": "DE", "keyword": "leise powerstation", "intent": "transactional", "search_index": 38, "difficulty": 27, "cpc_usd": 0.82},
+    {"market": "DE", "keyword": "balkonkraftwerk speicher", "intent": "informational", "search_index": 73, "difficulty": 64, "cpc_usd": 1.05},
+    {"market": "UK", "keyword": "portable power station uk", "intent": "commercial", "search_index": 76, "difficulty": 57, "cpc_usd": 1.27},
+    {"market": "UK", "keyword": "camping power bank 240v", "intent": "commercial", "search_index": 58, "difficulty": 43, "cpc_usd": 0.98},
+    {"market": "UK", "keyword": "solar panel for camping", "intent": "commercial", "search_index": 62, "difficulty": 46, "cpc_usd": 0.91},
+    {"market": "FR", "keyword": "station electrique portable camping", "intent": "commercial", "search_index": 69, "difficulty": 50, "cpc_usd": 1.08},
+    {"market": "FR", "keyword": "panneau solaire camping", "intent": "commercial", "search_index": 64, "difficulty": 44, "cpc_usd": 0.87},
+    {"market": "FR", "keyword": "batterie externe 220v", "intent": "transactional", "search_index": 47, "difficulty": 33, "cpc_usd": 0.79}
+  ]
+}

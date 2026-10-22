@@ -1,0 +1,103 @@
+# =============================================================================
+# 欧美储能产品合规规则
+#
+# 注意：本文件是面试演示用的规则库，不是法律意见。CE 不是单一证书，而是
+# 适用指令/法规下的符合性评估与自我声明；FCC 规则也按设备类型区分 SDoC/认证。
+# 实际出口前必须由具备资质的合规服务商确认适用标准、测试范围与技术文件。
+# =============================================================================
+severity_weights:
+  high: 25
+  medium: 10
+  low: 5
+
+thresholds:
+  us_voltage_v: [100, 130]
+  eu_voltage_v: [220, 240]
+  us_frequency_hz: 60
+  eu_frequency_hz: 50
+  battery_air_advisory_wh: 100
+  max_risk_score: 100
+
+manual_languages:
+  eu_required: ["en", "de", "fr"]
+  us_required: ["en"]
+
+standards:
+  - id: "EU_LVD"
+    label: "EU LVD 2014/35/EU"
+    market: "EU"
+    scope: "AC 50-1000V 的电气设备安全；便携储能 AC 输出通常落入适用范围。"
+    evidence: "LVD 测试报告、风险评估、技术文件、EU Declaration of Conformity、CE 标记。"
+    source: "EUR-Lex Directive 2014/35/EU"
+  - id: "EU_EMC"
+    label: "EU EMC 2014/30/EU"
+    market: "EU"
+    scope: "电气/电子设备的电磁兼容；含 AC 逆变器、充电与数字控制。"
+    evidence: "EMC 测试报告（发射/抗扰）、技术文件、DoC。"
+    source: "EUR-Lex Directive 2014/30/EU"
+  - id: "EU_ROHS"
+    label: "EU RoHS 2011/65/EU"
+    market: "EU"
+    scope: "限制铅、镉、汞、六价铬、PBB、PBDE 及四项邻苯二甲酸酯。"
+    evidence: "均质材料检测报告、供应商声明、技术文件。"
+    source: "EUR-Lex Directive 2011/65/EU"
+  - id: "EU_WEEE"
+    label: "EU WEEE 2012/19/EU"
+    market: "EU"
+    scope: "废弃电子电气设备回收责任、注册与标识。"
+    evidence: "各成员国 WEEE 注册号、回收方案、带叉垃圾桶标识。"
+    source: "EUR-Lex Directive 2012/19/EU"
+  - id: "EU_BATTERY"
+    label: "EU Battery Regulation (EU) 2023/1542"
+    market: "EU"
+    scope: "电池投放市场、碳足迹、回收料、标签、电池护照与尽职调查路线。"
+    evidence: "电池测试/安全文件、碳足迹与回收含量资料、标签、供应链尽职调查。"
+    source: "EUR-Lex Regulation (EU) 2023/1542"
+  - id: "EU_GPSR"
+    label: "EU GPSR (EU) 2023/988"
+    market: "EU"
+    scope: "一般产品安全、可追溯性、欧盟责任人、召回与事故记录。"
+    evidence: "EU Responsible Person 名称/地址/邮箱、技术文件、风险评估、追溯信息。"
+    source: "EUR-Lex Regulation (EU) 2023/988"
+  - id: "EU_RED"
+    label: "EU RED 2014/53/EU"
+    market: "EU"
+    scope: "含 Bluetooth/Wi-Fi 等无线发射模块的产品。"
+    evidence: "RED 测试报告、射频暴露评估、CE-RED DoC、无线模块证书。"
+    source: "EUR-Lex Directive 2014/53/EU"
+  - id: "US_FCC15B"
+    label: "US FCC 47 CFR Part 15 Subpart B"
+    market: "US"
+    scope: "无意辐射体（数字电路/AC 逆变器）的电磁发射；通常走 SDoC。"
+    evidence: "Part 15B 测试报告、SDoC、FCC 标签/合规声明。"
+    source: "47 CFR Part 15 Subpart B"
+  - id: "US_FCC15C"
+    label: "US FCC 47 CFR Part 15 Subpart C"
+    market: "US"
+    scope: "有意辐射体（Bluetooth/Wi-Fi 等 2.4/5GHz 模块）；通常需 FCC ID 认证。"
+    evidence: "FCC ID、Grant、射频测试报告、标签与用户手册声明。"
+    source: "47 CFR Part 15 Subpart C"
+  - id: "US_UL2743"
+    label: "US UL 2743（便携式电源安全）"
+    market: "US"
+    scope: "便携式电源/应急电源的电气、机械、热与电池安全；常用于零售准入。"
+    evidence: "UL 2743 测试报告/证书（或 NRTL 认可方案）。"
+    source: "UL 2743 / NRTL"
+  - id: "US_PROP65"
+    label: "California Prop 65"
+    market: "US"
+    scope: "加州化学品暴露警告；电池、焊料、塑料等需评估。"
+    evidence: "材料评估、警示标签、供应商声明。"
+    source: "California Health & Safety Code §25249.5 et seq."
+  - id: "UN383"
+    label: "UN 38.3 / 锂电池运输测试"
+    market: "GLOBAL"
+    scope: "锂离子/锂金属电池运输安全测试；空运/海运/快递均涉及。"
+    evidence: "UN 38.3 测试摘要、MSDS、运输包装说明。"
+    source: "UN Manual of Tests and Criteria, Part III, 38.3"
+  - id: "IATA"
+    label: "IATA DGR 锂电池运输限制"
+    market: "GLOBAL"
+    scope: ">100Wh 锂电池空运通常受限制/需批准；需核对包装与标签。"
+    evidence: "UN38.3、MSDS、航空运输鉴定、包装测试。"
+    source: "IATA Dangerous Goods Regulations"
